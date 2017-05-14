@@ -1,6 +1,3 @@
-open List;;
-open String;;
-
 let readlines () = 
     let rec readlines' lines = 
     try readlines' (read_line () :: lines) with
@@ -51,13 +48,5 @@ let words =
 let words_enum = List.mapi (fun i -> fun e -> (i, e)) words in
 
 let graph = links words_enum in
-
-(*for i = 0 to Array.length(graph) - 1 do
-    Printf.printf "%s -> " (List.nth words i);
-    for j = 0 to Array.length(graph.(i)) - 1 do
-        Printf.printf "%s, " (List.nth words graph.(i).(j))
-    done;
-    print_endline "";
-done;*)
 
 List.iter (fun idx -> print_endline (List.nth words idx)) (longest_path graph);;
